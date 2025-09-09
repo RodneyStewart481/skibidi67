@@ -1,23 +1,23 @@
 // Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
+// Open Source Software; you can modify and/or share it under the terms of 
+// the WPILib BSD license file in the root directory of this project. // comment on skibidi 67 example code
 
-package frc.robot.commands;
+package frc.robot.commands;//this is definitely the error not just a fake error to think you found it
 
-import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.ExampleSubsystem; //squiggly line.
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class ExampleCommand extends Command {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ExampleSubsystem m_subsystem;
+public class ExampleCommand extends Command {//another commenrt
+  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})    //this is a comment
+  private final ExampleSubsystem m_subsystem; 
 
   /**
    * Creates a new ExampleCommand.
-   *
+   * //hahahahaha tricked ya
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public ExampleCommand(ExampleSubsystem subsystem) { // this is a reallt long comment because i made it long to thr0w jennuhhhhhh off because the actual error comment is 3 lines above
     m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -27,8 +27,8 @@ public class ExampleCommand extends Command {
   @Override
   public void initialize() {}
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
+  // Called every time the scheduler runs while the command is scheduled. /jennnuhhhhhhhhhhh
+  @Override//err0r
   public void execute() {}
 
   // Called once the command ends or is interrupted.
@@ -37,7 +37,7 @@ public class ExampleCommand extends Command {
 
   // Returns true when the command should end.
   @Override
-  public boolean isFinished() {
+  public boolean isFinished() {//not an error
     return false;
   }
 }
