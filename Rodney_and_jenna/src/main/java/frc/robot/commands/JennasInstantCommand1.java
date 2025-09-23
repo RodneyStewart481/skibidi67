@@ -16,8 +16,8 @@ public class JennasInstantCommand1 extends InstantCommand {
 
   private JennasSuperAwesomeSubsystem JennaSubsystem;
 
-  public JennasInstantCommand1() {
-    JennaSubsystem = new JennasSuperAwesomeSubsystem(); 
+  public JennasInstantCommand1(JennasSuperAwesomeSubsystem JennaObject) {
+    JennaSubsystem = JennaObject; 
   }
 
 

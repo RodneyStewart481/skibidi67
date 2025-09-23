@@ -15,8 +15,8 @@ public class JennasInstantCommand2 extends InstantCommand {
 
   private JennasSuperAwesomeSubsystem JennaSubsystem;
 
-  public JennasInstantCommand2() {
-    JennaSubsystem = new JennasSuperAwesomeSubsystem();
+  public JennasInstantCommand2(JennasSuperAwesomeSubsystem JennaObject) {
+    JennaSubsystem = JennaObject;
   }
 
   // Called when the command is initially scheduled.
