@@ -11,7 +11,9 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-
+import frc.robot.commands.InstantCommands1;
+import frc.robot.commands.InstantCommands2;
+import frc.robot.subsystems.RodneyIsTheMostAuratasticPersonInTheWorld;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -21,6 +23,9 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final RodneyIsTheMostAuratasticPersonInTheWorld m_RodneyIsTheMostAuratasticPersonInTheWorld = new RodneyIsTheMostAuratasticPersonInTheWorld();
+  private InstantCommands1 robotCommand1;
+  private InstantCommands2 robotCommand2;
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -28,6 +33,8 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    robotCommand1 = new InstantCommands1(m_RodneyIsTheMostAuratasticPersonInTheWorld);
+    robotCommand2 = new InstantCommands2(m_RodneyIsTheMostAuratasticPersonInTheWorld);
     // Configure the trigger bindings
     configureBindings();
   }
@@ -49,6 +56,8 @@ public class RobotContainer {
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
     m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+    m_driverController.x().onTrue(robotCommand1);
+    m_driverController.y().onTrue(robotCommand2);
   }
 
   /**

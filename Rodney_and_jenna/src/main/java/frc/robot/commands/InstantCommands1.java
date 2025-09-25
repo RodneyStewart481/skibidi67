@@ -19,10 +19,10 @@ public class InstantCommands1 extends InstantCommand {
 
   private RodneyIsTheMostAuratasticPersonInTheWorld Rodneysubsystem;
 
-  public InstantCommands1() {
+  public InstantCommands1(RodneyIsTheMostAuratasticPersonInTheWorld m_Tempsub) {
   
     // Use addRequirements() here to declare subsystem dependencies.
-    Rodneysubsystem = new RodneyIsTheMostAuratasticPersonInTheWorld();
+    Rodneysubsystem = m_Tempsub;
   }
   // Called when the command is initially scheduled.
   @Override

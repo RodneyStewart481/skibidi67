@@ -15,9 +15,9 @@ import frc.robot.subsystems.RodneyIsTheMostAuratasticPersonInTheWorld;
 public class InstantCommands2 extends InstantCommand {
   private RodneyIsTheMostAuratasticPersonInTheWorld Rodneysubsystem;
   
-  public InstantCommands2() {
+  public InstantCommands2(RodneyIsTheMostAuratasticPersonInTheWorld tempSub) {
     // Use addRequirements() here to declare subsystem dependencies.
-Rodneysubsystem = new RodneyIsTheMostAuratasticPersonInTheWorld();
+Rodneysubsystem = tempSub;
   }
 
   // Called when the command is initially scheduled.
