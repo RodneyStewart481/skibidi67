@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
@@ -13,6 +14,7 @@ public class JennasSuperAwesomeSubsystem extends SubsystemBase {
   /** Creates a new JennasSuperAwesomeCode. */
   
   private TalonFX JennasMotor;
+  public String AString = "just a string";
   
   public JennasSuperAwesomeSubsystem() {
        JennasMotor = new TalonFX (0);
@@ -32,5 +34,7 @@ public class JennasSuperAwesomeSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putString("just a string", AString);
+    
   }
 }
