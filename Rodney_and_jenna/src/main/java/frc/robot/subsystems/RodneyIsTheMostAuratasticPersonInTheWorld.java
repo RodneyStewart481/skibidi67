@@ -6,11 +6,13 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix6.hardware.TalonFX;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class RodneyIsTheMostAuratasticPersonInTheWorld extends SubsystemBase {
   private TalonFX Rodneymotor;
- 
+private String ThatString = "this or that string?";
+
   /** Creates a new RodneyIsTheMostAuratasticPersonInTheWorld. */
  
   public RodneyIsTheMostAuratasticPersonInTheWorld() {
@@ -31,6 +33,7 @@ public class RodneyIsTheMostAuratasticPersonInTheWorld extends SubsystemBase {
   }
   @Override
   public void periodic() {
+    SmartDashboard.putString("ThatString", ThatString);
     // This method will be called once per scheduler run
   }
 }
