@@ -17,11 +17,12 @@ public class JennasSuperAwesomeSubsystem extends SubsystemBase {
   public String AString = "just a string";
   
   public JennasSuperAwesomeSubsystem() {
-       JennasMotor = new TalonFX (0);
+    JennasMotor = new TalonFX (0);
+    mLauncherState = LauncherState.S_Empty;
   }
 
   public void spinJennasMotor() {
-       JennasMotor.setVoltage(4);
+      JennasMotor.setVoltage(4);
   }
 
   public void stopJenna() {
@@ -30,11 +31,35 @@ public class JennasSuperAwesomeSubsystem extends SubsystemBase {
   public void MoveJenna(double speed) {
       JennasMotor.setVoltage(speed * 12);
   }
+
+  public void spinJennasMotorFaster() {
+      JennasMotor.setVoltage(10);
+  }
+
+  public enum LauncherState {
+    S_Fill, S_Empty, S_Launching
+  }
+  public static LauncherState mLauncherState;
+
+  public void runLauncherState(){
+    switch (mLauncherState){
+      case S_Empty:
+      spinJennasMotor();
+      break;
+      case S_Fill:
+      stopJenna();
+      break;
+      case S_Launching:
+      spinJennasMotorFaster();
+      break;
+    }
+  }
+  
   
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     SmartDashboard.putString("just a string", AString);
-    
+    runLauncherState();
   }
 }
