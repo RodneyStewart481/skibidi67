@@ -10,14 +10,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class RodneyIsTheMostAuratasticPersonInTheWorld extends SubsystemBase {
-  private TalonFX Rodneymotor;
+  public enum LauncherState {
+   S_fill,S_empty, S_launching
+  
+  }
+  public static LauncherState m_LauncherState;
+
+ private TalonFX Rodneymotor;
 private String ThatString = "this or that string?";
 
   /** Creates a new RodneyIsTheMostAuratasticPersonInTheWorld. */
  
   public RodneyIsTheMostAuratasticPersonInTheWorld() {
     Rodneymotor = new TalonFX(0);
-     
+     m_LauncherState = LauncherState.S_empty;
+    
   }
  
   public void spinRodneymotor() {
@@ -31,8 +38,32 @@ private String ThatString = "this or that string?";
   public void moveRodneymotor(double speed) {
     Rodneymotor.setVoltage(speed * 12); 
   }
+
+  public void Launcher(){
+    Rodneymotor.setVoltage(6.7);
+  }
+
+
+  public void runLauncherState(){
+
+    switch (m_LauncherState) {
+      case S_empty:
+        spinRodneymotor();
+        break;
+    
+      case S_fill:
+        stopRodneymotor();
+        break;
+
+        case S_launching:
+        Launcher();
+        break;
+    }     
+  }
+  
   @Override
   public void periodic() {
+    runLauncherState();
     SmartDashboard.putString("ThatString", ThatString);
     // This method will be called once per scheduler run
   }
